@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Someone Special ❤️</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background: linear-gradient(to right, #ff9a9e, #fad0c4);
+        color: #333;
+        padding: 50px;
+    }
+
+    .box {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        max-width: 500px;
+        margin: auto;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    input {
+        padding: 10px;
+        width: 80%;
+        margin-top: 10px;
+    }
+
+    button {
+        padding: 10px 20px;
+        margin-top: 15px;
+        border: none;
+        border-radius: 6px;
+        background: #ff4d6d;
+        color: white;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #e63950;
+    }
+
+    .hidden {
+        display: none;
+    }
+</style>
+</head>
+
+<body>
+
+<!-- STEP 1 -->
+<div class="box" id="step1">
+    <h2>Welcome ❤️</h2>
+    <p>
+        I speak without a mouth,<br>
+        I hear without ears,<br>
+        I have nobody,<br>
+        But I come alive with love.<br><br>
+        What am I?
+    </p>
+
+    <input type="text" id="answer1" placeholder="Your answer">
+    <br>
+    <button onclick="check1()">Submit</button>
+</div>
+
+<!-- STEP 2 -->
+<div class="box hidden" id="step2">
+    <h2>You’re doing great 😉</h2>
+    <p>Where did we first meet?</p>
+
+    <input type="text" id="answer2" placeholder="Your answer">
+    <br>
+    <button onclick="check2()">Submit</button>
+</div>
+
+<!-- STEP 3 -->
+<div class="box hidden" id="step3">
+    <h2>Almost there ❤️</h2>
+    <p>What is the one thing I always say to you?</p>
+
+    <input type="text" id="answer3" placeholder="Your answer">
+    <br>
+    <button onclick="check3()">Submit</button>
+</div>
+
+<!-- FINAL -->
+<div class="box hidden" id="final">
+    <h2>❤️</h2>
+    <p>
+        You solved every puzzle…<br>
+        Just like you solved my life ❤️<br><br>
+
+        Now one last question…<br><br>
+
+        <strong>Will you marry me? 💍</strong>
+    </p>
+
+    <br>
+
+    <!-- WHATSAPP BUTTON -->
+    <a id="whatsappLink" target="_blank">
+        <button>Send Your Answer ❤️</button>
+    </a>
+</div>
+
+<script>
+    function check1() {
+        let ans = document.getElementById("answer1").value.toLowerCase().trim();
+        if (ans === "echo") {
+            document.getElementById("step1").classList.add("hidden");
+            document.getElementById("step2").classList.remove("hidden");
+        } else {
+            alert("Try again ❤️");
+        }
+    }
+
+    function check2() {
+        let ans = document.getElementById("answer2").value.toLowerCase().trim();
+
+        // 👉 CHANGE THIS ANSWER
+        if (ans === "Pg kae neeche") {
+            document.getElementById("step2").classList.add("hidden");
+            document.getElementById("step3").classList.remove("hidden");
+        } else {
+            alert("Hint: Think about our first meeting 😉");
+        }
+    }
+
+    function check3() {
+        let ans = document.getElementById("answer3").value.toLowerCase().trim();
+
+        // 👉 CHANGE THIS ANSWER
+        if (ans === "i love you So Much") {
+            document.getElementById("step3").classList.add("hidden");
+            document.getElementById("final").classList.remove("hidden");
+        } else {
+            alert("Come on… you know this ❤️");
+        }
+    }
+
+    // 👉 REPLACE PHONE NUMBER BELOW
+    let phoneNumber = "8920710033";
+
+    let message = `You solved every puzzle…
+Just like you solved my life ❤️
+
+Now one last question…
+
+Will you marry me? 💍`;
+
+    let encodedMessage = encodeURIComponent(message);
+
+    document.getElementById("whatsappLink").href =
+        `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+</script>
+
+</body>
+</html>
