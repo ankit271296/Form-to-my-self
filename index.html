@@ -107,9 +107,22 @@
 </div>
 
 <script>
+    // ✅ Utility function to normalize input
+    function normalize(input) {
+        return input.toLowerCase().trim().replace(/\s+/g, " ");
+    }
+
+    // ✅ Correct Answers (multiple variations supported)
+    const answers = {
+        step1: ["echo"],
+        step2: ["pg kae neeche", "pg ke neeche", "under pg"],
+        step3: ["i love you so much", "love you so much", "i love you"]
+    };
+
     function check1() {
-        let ans = document.getElementById("answer1").value.toLowerCase().trim();
-        if (ans === "echo") {
+        let ans = normalize(document.getElementById("answer1").value);
+
+        if (answers.step1.includes(ans)) {
             document.getElementById("step1").classList.add("hidden");
             document.getElementById("step2").classList.remove("hidden");
         } else {
@@ -118,10 +131,9 @@
     }
 
     function check2() {
-        let ans = document.getElementById("answer2").value.toLowerCase().trim();
+        let ans = normalize(document.getElementById("answer2").value);
 
-        // 👉 CHANGE THIS ANSWER
-        if (ans === "Pg kae neeche") {
+        if (answers.step2.includes(ans)) {
             document.getElementById("step2").classList.add("hidden");
             document.getElementById("step3").classList.remove("hidden");
         } else {
@@ -130,10 +142,9 @@
     }
 
     function check3() {
-        let ans = document.getElementById("answer3").value.toLowerCase().trim();
+        let ans = normalize(document.getElementById("answer3").value);
 
-        // 👉 CHANGE THIS ANSWER
-        if (ans === "i love you So Much") {
+        if (answers.step3.includes(ans)) {
             document.getElementById("step3").classList.add("hidden");
             document.getElementById("final").classList.remove("hidden");
         } else {
@@ -141,8 +152,8 @@
         }
     }
 
-    // 👉 REPLACE PHONE NUMBER BELOW
-    let phoneNumber = "8920710033";
+    // ✅ WhatsApp Configuration
+    let phoneNumber = "918920710033"; // add country code (91 for India)
 
     let message = `You solved every puzzle…
 Just like you solved my life ❤️
