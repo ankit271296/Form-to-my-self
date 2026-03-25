@@ -130,16 +130,20 @@
         }
     }
 
-    function check2() {
-        let ans = normalize(document.getElementById("answer2").value);
+   function check2() {
+    let raw = document.getElementById("answer2").value;
+    let ans = normalize(raw);
 
-        if (answers.step2.includes(ans)) {
-            document.getElementById("step2").classList.add("hidden");
-            document.getElementById("step3").classList.remove("hidden");
-        } else {
-            alert("Hint: Think about our first meeting 😉");
-        }
+    console.log("RAW:", raw);
+    console.log("NORMALIZED:", ans);
+
+    if (answers.step2.includes(ans)) {
+        document.getElementById("step2").classList.add("hidden");
+        document.getElementById("step3").classList.remove("hidden");
+    } else {
+        alert("Hint: Think about our first meeting 😉");
     }
+}
 
     function check3() {
         let ans = normalize(document.getElementById("answer3").value);
